@@ -44,21 +44,18 @@ namespace MinhHoaMaHoaLai
                     if (GCD(i, z) == 1)
                         return i;
                 }
-                return -1; // Không tìm thấy e
+                throw new InvalidOperationException("Không tìm thấy giá trị e hợp lệ.");
             }
 
             // Tìm số d thỏa mãn (e * d) mod z = 1
             private int FindD()
             {
-                int d = 1;
-                while ((e * d) % z != 1)
-                {
-                    d++;
-                }
-                return d;
+                int x, y;
+                ExtendedGCD(e, z, out x, out y);
+                return (x % z + z) % z; // Đảm bảo d không âm
             }
 
-            // Tìm ước số chung lớn nhất (GCD)
+            // Tính toán ước số chung lớn nhất (GCD)
             private int GCD(int a, int b)
             {
                 while (b != 0)
@@ -68,6 +65,22 @@ namespace MinhHoaMaHoaLai
                     a = temp;
                 }
                 return a;
+            }
+
+            // Tính toán thuật toán Euclid mở rộng
+            private int ExtendedGCD(int a, int b, out int x, out int y)
+            {
+                if (a == 0)
+                {
+                    x = 0;
+                    y = 1;
+                    return b;
+                }
+                int x1, y1;
+                int gcd = ExtendedGCD(b % a, a, out x1, out y1);
+                x = y1 - (b / a) * x1;
+                y = x1;
+                return gcd;
             }
 
             // Mã hóa dữ liệu
@@ -82,7 +95,7 @@ namespace MinhHoaMaHoaLai
                 return ModExp(c, d, n);
             }
 
-            // Tính toán m^e mod n 
+            // Tính toán m^e mod n
             private int ModExp(int baseVal, int exp, int mod)
             {
                 int result = 1;
@@ -98,6 +111,7 @@ namespace MinhHoaMaHoaLai
                 return result;
             }
         }
+
         public class CaesarCipher
         {
             public int Key { get; set; }
@@ -115,7 +129,7 @@ namespace MinhHoaMaHoaLai
                     if (char.IsLetter(ch))
                     {
                         char d = char.IsUpper(ch) ? 'A' : 'a';
-                        int newIndex = (((ch - d) + Key) % 26); 
+                        int newIndex = (((ch - d) + Key) % 26);
                         encryptedText.Append((char)(newIndex + d));
                     }
                     else
@@ -134,7 +148,7 @@ namespace MinhHoaMaHoaLai
                     if (char.IsLetter(ch))
                     {
                         char d = char.IsUpper(ch) ? 'A' : 'a';
-                        int newIndex = (((ch - d) - Key + 26) % 26); 
+                        int newIndex = (((ch - d) - Key + 26) % 26);
                         decryptedText.Append((char)(newIndex + d));
                     }
                     else
@@ -150,50 +164,64 @@ namespace MinhHoaMaHoaLai
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
 
-            int p = int.Parse(txtP.Text);
-            int q = int.Parse(txtQ.Text);
-            int eValue = int.Parse(txtE.Text);
-            int symmetricKey = int.Parse(txtSymmetricKey.Text);
-            string plainText = txtPlainText.Text;
+            try
+            {
+                int p = int.Parse(txtP.Text);
+                int q = int.Parse(txtQ.Text);
+                int eValue = int.Parse(txtE.Text);
+                int symmetricKey = int.Parse(txtSymmetricKey.Text);
+                string plainText = txtPlainText.Text;
 
-            // Khởi tạo thuật toán RSA
-            RSA rsa = new RSA(p, q);
-            rsa.e = eValue;
+                // Khởi tạo thuật toán RSA
+                RSA rsa = new RSA(p, q);
+                rsa.e = eValue;
 
-            // Mã hóa dữ liệu gốc bằng Caesar cipher
-            CaesarCipher caesar = new CaesarCipher(symmetricKey);
-            string encryptedText = caesar.Encrypt(plainText);
+                // Mã hóa dữ liệu gốc bằng Caesar cipher
+                CaesarCipher caesar = new CaesarCipher(symmetricKey);
+                string encryptedText = caesar.Encrypt(plainText);
 
-            // Mã hóa khóa đối xứng bằng RSA
-            int encryptedSymmetricKey = rsa.Encrypt(symmetricKey);
+                // Mã hóa khóa đối xứng bằng RSA
+                int encryptedSymmetricKey = rsa.Encrypt(symmetricKey);
 
-            // Hiển thị dữ liệu mã hóa
-            txtEncryptedText.Text = encryptedText; // Hiển thị dữ liệu mã hóa
-            txtEncryptedKey.Text = encryptedSymmetricKey.ToString(); // Hiển thị khóa đối xứng mã hóa
+                // Hiển thị dữ liệu mã hóa
+                txtEncryptedText.Text = encryptedText; // Hiển thị dữ liệu mã hóa
+                txtEncryptedKey.Text = encryptedSymmetricKey.ToString(); // Hiển thị khóa đối xứng mã hóa
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
 
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
-            int p = int.Parse(txtP.Text);
-            int q = int.Parse(txtQ.Text);
-            int eValue = int.Parse(txtE.Text);
-            int encryptedSymmetricKey = int.Parse(txtEncryptedKey.Text); // Lấy khóa đối xứng mã hóa
-            string encryptedText = txtEncryptedText.Text; // Lấy dữ liệu mã hóa
+            try
+            {
+                int p = int.Parse(txtP.Text);
+                int q = int.Parse(txtQ.Text);
+                int eValue = int.Parse(txtE.Text);
+                int encryptedSymmetricKey = int.Parse(txtEncryptedKey.Text); // Lấy khóa đối xứng mã hóa
+                string encryptedText = txtEncryptedText.Text; // Lấy dữ liệu mã hóa
 
-            // Khởi tạo thuật toán RSA
-            RSA rsa = new RSA(p, q);
-            rsa.e = eValue;
+                // Khởi tạo thuật toán RSA
+                RSA rsa = new RSA(p, q);
+                rsa.e = eValue;
 
-            // Giải mã khóa đối xứng từ RSA
-            int decryptedSymmetricKey = rsa.Decrypt(encryptedSymmetricKey);
+                // Giải mã khóa đối xứng từ RSA
+                int decryptedSymmetricKey = rsa.Decrypt(encryptedSymmetricKey);
 
-            // Sử dụng khóa đối xứng để giải mã dữ liệu
-            CaesarCipher caesar = new CaesarCipher(decryptedSymmetricKey);
-            string decryptedText = caesar.Decrypt(encryptedText);
+                // Sử dụng khóa đối xứng để giải mã dữ liệu
+                CaesarCipher caesar = new CaesarCipher(decryptedSymmetricKey);
+                string decryptedText = caesar.Decrypt(encryptedText);
 
-            // Hiển thị dữ liệu đã giải mã
-            txtDecryptedData.Text = decryptedText;
+                // Hiển thị dữ liệu đã giải mã
+                txtDecryptedData.Text = decryptedText;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message);
+            }
         }
     }
 }

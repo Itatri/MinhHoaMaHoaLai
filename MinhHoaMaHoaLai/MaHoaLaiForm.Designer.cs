@@ -163,9 +163,9 @@
             // 
             // btnEncrypt
             // 
-            this.btnEncrypt.Location = new System.Drawing.Point(235, 311);
+            this.btnEncrypt.Location = new System.Drawing.Point(212, 304);
             this.btnEncrypt.Name = "btnEncrypt";
-            this.btnEncrypt.Size = new System.Drawing.Size(75, 23);
+            this.btnEncrypt.Size = new System.Drawing.Size(114, 34);
             this.btnEncrypt.TabIndex = 16;
             this.btnEncrypt.Text = "Mã hóa ";
             this.btnEncrypt.UseVisualStyleBackColor = true;
@@ -173,9 +173,9 @@
             // 
             // btnDecrypt
             // 
-            this.btnDecrypt.Location = new System.Drawing.Point(232, 548);
+            this.btnDecrypt.Location = new System.Drawing.Point(212, 544);
             this.btnDecrypt.Name = "btnDecrypt";
-            this.btnDecrypt.Size = new System.Drawing.Size(75, 23);
+            this.btnDecrypt.Size = new System.Drawing.Size(114, 40);
             this.btnDecrypt.TabIndex = 17;
             this.btnDecrypt.Text = "Giải mã";
             this.btnDecrypt.UseVisualStyleBackColor = true;
@@ -196,14 +196,14 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label8.Location = new System.Drawing.Point(35, 361);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 24);
+            this.label8.Size = new System.Drawing.Size(169, 24);
             this.label8.TabIndex = 18;
-            this.label8.Text = "Dữ liệu mã hóa ";
+            this.label8.Text = "Dữ liệu đã mã hóa ";
             // 
             // txtDecryptedData
             // 
             this.txtDecryptedData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDecryptedData.Location = new System.Drawing.Point(39, 627);
+            this.txtDecryptedData.Location = new System.Drawing.Point(39, 635);
             this.txtDecryptedData.Multiline = true;
             this.txtDecryptedData.Name = "txtDecryptedData";
             this.txtDecryptedData.Size = new System.Drawing.Size(457, 32);
@@ -213,7 +213,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(34, 587);
+            this.label9.Location = new System.Drawing.Point(34, 595);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(203, 24);
             this.label9.TabIndex = 20;
@@ -234,9 +234,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label10.Location = new System.Drawing.Point(36, 453);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(202, 24);
+            this.label10.Size = new System.Drawing.Size(166, 24);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Khóa đối xứng mã hóa";
+            this.label10.Text = "Khóa K đã mã hóa";
             // 
             // MaHoaLaiForm
             // 
@@ -263,8 +263,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtP);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MaHoaLaiForm";
-            this.Text = "Form1";
+            this.Text = "MaHoaLai";
             this.ResumeLayout(false);
             this.PerformLayout();
 
