@@ -104,7 +104,7 @@ namespace MinhHoaMaHoaLai
                 return ModExp(c, d, n);
             }
 
-            // Tính toán m^e mod n
+            // Tính toán k^e mod n và c^d mod n
             private int ModExp(int baseVal, int exp, int mod)
             {
                 int result = 1;
@@ -122,14 +122,15 @@ namespace MinhHoaMaHoaLai
         }
 
         public class CaesarCipher
-        {   
-            public int Key { get; set; } // Khóa K CaeserCipher
+        {
+            // Khóa K của mã hóa CaeserCipher
+            public int Key { get; set; } 
 
             public CaesarCipher(int key)
             {
                 Key = key;
             }
-
+            // Mã hóa Plaintext bằng CaeserCipher
             public string Encrypt(string plainText)
             {
                 StringBuilder encryptedText = new StringBuilder();
@@ -148,7 +149,7 @@ namespace MinhHoaMaHoaLai
                 }
                 return encryptedText.ToString();
             }
-
+            // Giải mã Plaintext bằng CaeserCipher
             public string Decrypt(string cipherText)
             {
                 StringBuilder decryptedText = new StringBuilder();
@@ -185,11 +186,11 @@ namespace MinhHoaMaHoaLai
             rsa.e = eValue;
 
             // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d)
-            txtN.Text = rsa.n.ToString(); // Hiển thị n
-            txtZ.Text = rsa.z.ToString(); // Hiển thị z
-            txtD.Text = rsa.d.ToString(); // Hiển thị d
-            txtPublicKey.Text = $"({rsa.n}, {rsa.e})"; // Hiển thị khóa công khai (n, e)
-            txtPrivateKey.Text = $"({rsa.n}, {rsa.d})"; // Hiển thị khóa riêng tư (n, d)
+            txtN.Text = rsa.n.ToString(); 
+            txtZ.Text = rsa.z.ToString(); 
+            txtD.Text = rsa.d.ToString(); 
+            txtPublicKey.Text = $"({rsa.n}, {rsa.e})"; 
+            txtPrivateKey.Text = $"({rsa.n}, {rsa.d})"; 
 
 
             // Mã hóa thông điệp bằng Caesar cipher
@@ -219,11 +220,11 @@ namespace MinhHoaMaHoaLai
             rsa.e = eValue;
 
             // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d)
-            txtN.Text = rsa.n.ToString(); // Hiển thị n
-            txtZ.Text = rsa.z.ToString(); // Hiển thị z
-            txtD.Text = rsa.d.ToString(); // Hiển thị d
-            txtPublicKey.Text = $"({rsa.n}, {rsa.e})"; // Hiển thị khóa công khai (n, e)
-            txtPrivateKey.Text = $"({rsa.n}, {rsa.d})"; // Hiển thị khóa riêng tư (n, d)
+            txtN.Text = rsa.n.ToString(); 
+            txtZ.Text = rsa.z.ToString(); 
+            txtD.Text = rsa.d.ToString(); 
+            txtPublicKey.Text = $"({rsa.n}, {rsa.e})"; 
+            txtPrivateKey.Text = $"({rsa.n}, {rsa.d})"; 
 
 
             // Giải mã khóa đối xứng

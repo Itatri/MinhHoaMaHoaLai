@@ -48,22 +48,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtEncryptedKey = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtN = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtZ = new System.Windows.Forms.TextBox();
+            this.panelMaHoa = new System.Windows.Forms.Panel();
+            this.txtPublicKey = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtD = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtPublicKey = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtZ = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtN = new System.Windows.Forms.TextBox();
+            this.panelGiaiMa = new System.Windows.Forms.Panel();
             this.txtPrivateKey = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panelMaHoa.SuspendLayout();
+            this.panelGiaiMa.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtP
@@ -77,10 +77,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.Location = new System.Drawing.Point(22, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 18);
+            this.label2.Size = new System.Drawing.Size(17, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "p";
             // 
@@ -95,10 +95,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(193, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 18);
+            this.label1.Size = new System.Drawing.Size(17, 18);
             this.label1.TabIndex = 6;
             this.label1.Text = "q";
             // 
@@ -113,10 +113,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.Location = new System.Drawing.Point(356, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(16, 18);
+            this.label3.Size = new System.Drawing.Size(17, 18);
             this.label3.TabIndex = 8;
             this.label3.Text = "e";
             // 
@@ -131,10 +131,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.Location = new System.Drawing.Point(22, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 18);
+            this.label4.Size = new System.Drawing.Size(19, 18);
             this.label4.TabIndex = 10;
             this.label4.Text = "K";
             // 
@@ -256,98 +256,81 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Khóa K đã mã hóa";
             // 
-            // panel1
+            // panelMaHoa
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.txtPublicKey);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.txtD);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.txtZ);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.txtN);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtP);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtQ);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtE);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtSymmetricKey);
-            this.panel1.Controls.Add(this.btnEncrypt);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtPlainText);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(12, 51);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(498, 408);
-            this.panel1.TabIndex = 24;
+            this.panelMaHoa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelMaHoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMaHoa.Controls.Add(this.txtPublicKey);
+            this.panelMaHoa.Controls.Add(this.label16);
+            this.panelMaHoa.Controls.Add(this.label15);
+            this.panelMaHoa.Controls.Add(this.txtD);
+            this.panelMaHoa.Controls.Add(this.label14);
+            this.panelMaHoa.Controls.Add(this.txtZ);
+            this.panelMaHoa.Controls.Add(this.label13);
+            this.panelMaHoa.Controls.Add(this.txtN);
+            this.panelMaHoa.Controls.Add(this.label6);
+            this.panelMaHoa.Controls.Add(this.label2);
+            this.panelMaHoa.Controls.Add(this.txtP);
+            this.panelMaHoa.Controls.Add(this.label1);
+            this.panelMaHoa.Controls.Add(this.txtQ);
+            this.panelMaHoa.Controls.Add(this.label3);
+            this.panelMaHoa.Controls.Add(this.txtE);
+            this.panelMaHoa.Controls.Add(this.label4);
+            this.panelMaHoa.Controls.Add(this.txtSymmetricKey);
+            this.panelMaHoa.Controls.Add(this.btnEncrypt);
+            this.panelMaHoa.Controls.Add(this.label5);
+            this.panelMaHoa.Controls.Add(this.txtPlainText);
+            this.panelMaHoa.Controls.Add(this.label7);
+            this.panelMaHoa.Location = new System.Drawing.Point(12, 56);
+            this.panelMaHoa.Name = "panelMaHoa";
+            this.panelMaHoa.Size = new System.Drawing.Size(498, 408);
+            this.panelMaHoa.TabIndex = 24;
             // 
-            // panel2
+            // txtPublicKey
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.txtPrivateKey);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.btnDecrypt);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.txtEncryptedKey);
-            this.panel2.Controls.Add(this.txtEncryptedText);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.txtDecryptedData);
-            this.panel2.Location = new System.Drawing.Point(536, 51);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(498, 408);
-            this.panel2.TabIndex = 25;
+            this.txtPublicKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtPublicKey.Location = new System.Drawing.Point(221, 220);
+            this.txtPublicKey.Multiline = true;
+            this.txtPublicKey.Name = "txtPublicKey";
+            this.txtPublicKey.ReadOnly = true;
+            this.txtPublicKey.Size = new System.Drawing.Size(153, 25);
+            this.txtPublicKey.TabIndex = 25;
             // 
-            // label11
+            // label16
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.Location = new System.Drawing.Point(12, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 24);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Mã Hóa Dữ Liệu ";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label16.Location = new System.Drawing.Point(22, 221);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(173, 18);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Khóa công khai ( n , e ) : ";
             // 
-            // label12
+            // label15
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label12.Location = new System.Drawing.Point(532, 19);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(164, 24);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "Giải Mã Dữ Liệu ";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label15.Location = new System.Drawing.Point(356, 98);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(17, 18);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "d";
             // 
-            // label13
+            // txtD
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label13.Location = new System.Drawing.Point(22, 98);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(16, 18);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "n";
-            // 
-            // txtN
-            // 
-            this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtN.Location = new System.Drawing.Point(49, 98);
-            this.txtN.Name = "txtN";
-            this.txtN.ReadOnly = true;
-            this.txtN.Size = new System.Drawing.Size(100, 22);
-            this.txtN.TabIndex = 18;
+            this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtD.Location = new System.Drawing.Point(383, 98);
+            this.txtD.Name = "txtD";
+            this.txtD.Size = new System.Drawing.Size(100, 22);
+            this.txtD.TabIndex = 22;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label14.Location = new System.Drawing.Point(193, 98);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(16, 18);
+            this.label14.Size = new System.Drawing.Size(17, 18);
             this.label14.TabIndex = 19;
             this.label14.Text = "z";
             // 
@@ -360,53 +343,42 @@
             this.txtZ.Size = new System.Drawing.Size(100, 22);
             this.txtZ.TabIndex = 20;
             // 
-            // label15
+            // label13
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label15.Location = new System.Drawing.Point(356, 98);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(16, 18);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "d";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label13.Location = new System.Drawing.Point(22, 98);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 18);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "n";
             // 
-            // txtD
+            // txtN
             // 
-            this.txtD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtD.Location = new System.Drawing.Point(383, 98);
-            this.txtD.Name = "txtD";
-            this.txtD.Size = new System.Drawing.Size(100, 22);
-            this.txtD.TabIndex = 22;
+            this.txtN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtN.Location = new System.Drawing.Point(49, 98);
+            this.txtN.Name = "txtN";
+            this.txtN.ReadOnly = true;
+            this.txtN.Size = new System.Drawing.Size(100, 22);
+            this.txtN.TabIndex = 18;
             // 
-            // label16
+            // panelGiaiMa
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label16.Location = new System.Drawing.Point(22, 221);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(173, 18);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Khóa công khai ( n , e ) : ";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label17.Location = new System.Drawing.Point(22, 213);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(157, 18);
-            this.label17.TabIndex = 24;
-            this.label17.Text = "Khóa riêng tư ( n , d ) : ";
-            // 
-            // txtPublicKey
-            // 
-            this.txtPublicKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtPublicKey.Location = new System.Drawing.Point(221, 220);
-            this.txtPublicKey.Multiline = true;
-            this.txtPublicKey.Name = "txtPublicKey";
-            this.txtPublicKey.ReadOnly = true;
-            this.txtPublicKey.Size = new System.Drawing.Size(153, 25);
-            this.txtPublicKey.TabIndex = 25;
+            this.panelGiaiMa.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelGiaiMa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGiaiMa.Controls.Add(this.txtPrivateKey);
+            this.panelGiaiMa.Controls.Add(this.label8);
+            this.panelGiaiMa.Controls.Add(this.btnDecrypt);
+            this.panelGiaiMa.Controls.Add(this.label17);
+            this.panelGiaiMa.Controls.Add(this.txtEncryptedKey);
+            this.panelGiaiMa.Controls.Add(this.txtEncryptedText);
+            this.panelGiaiMa.Controls.Add(this.label10);
+            this.panelGiaiMa.Controls.Add(this.label9);
+            this.panelGiaiMa.Controls.Add(this.txtDecryptedData);
+            this.panelGiaiMa.Location = new System.Drawing.Point(536, 56);
+            this.panelGiaiMa.Name = "panelGiaiMa";
+            this.panelGiaiMa.Size = new System.Drawing.Size(498, 408);
+            this.panelGiaiMa.TabIndex = 25;
             // 
             // txtPrivateKey
             // 
@@ -418,22 +390,52 @@
             this.txtPrivateKey.Size = new System.Drawing.Size(153, 25);
             this.txtPrivateKey.TabIndex = 26;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label17.Location = new System.Drawing.Point(22, 213);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(157, 18);
+            this.label17.TabIndex = 24;
+            this.label17.Text = "Khóa riêng tư ( n , d ) : ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label11.Location = new System.Drawing.Point(185, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(166, 24);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Mã Hóa Dữ Liệu ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label12.Location = new System.Drawing.Point(707, 19);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(164, 24);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Giải Mã Dữ Liệu ";
+            // 
             // MaHoaLaiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 477);
+            this.ClientSize = new System.Drawing.Size(1046, 479);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Controls.Add(this.panelGiaiMa);
+            this.Controls.Add(this.panelMaHoa);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaHoaLaiForm";
-            this.Text = "MaHoaLai";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Text = "Mã Hóa Lai";
+            this.panelMaHoa.ResumeLayout(false);
+            this.panelMaHoa.PerformLayout();
+            this.panelGiaiMa.ResumeLayout(false);
+            this.panelGiaiMa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,8 +463,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtEncryptedKey;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMaHoa;
+        private System.Windows.Forms.Panel panelGiaiMa;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
