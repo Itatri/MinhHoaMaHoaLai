@@ -16,7 +16,31 @@ namespace MinhHoaMaHoaLai
         public MaHoaLaiForm()
         {
             InitializeComponent();
+
+            // Thêm sự kiện điền giá trị cho txtP và txtQ sau khi nhập p , q
+            txtP.TextChanged += new EventHandler(txtP_or_txtQ_TextChanged);
+            txtQ.TextChanged += new EventHandler(txtP_or_txtQ_TextChanged);
+
         }
+        private void txtP_or_txtQ_TextChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra  p , q và tính n , z 
+            if (int.TryParse(txtP.Text, out int p) && int.TryParse(txtQ.Text, out int q))
+            {
+                if (p > 1 && q > 1) 
+                {
+                    // Tính n và z
+                    int n = p * q;
+                    int z = (p - 1) * (q - 1);
+
+                    // Hiển thị n và z
+                    txtN.Text = n.ToString();
+                    txtZ.Text = z.ToString();
+                }
+            }
+        }
+       
+        // Mã hóa bất đối xứng RSA
         public class RSA
         {
             public int p { get; set; }
@@ -32,8 +56,6 @@ namespace MinhHoaMaHoaLai
                 this.q = q;
                 this.n = p * q;
                 this.z = (p - 1) * (q - 1);
-                //this.e = FindE();
-                //this.d = FindD();
                 this.e = e;
                 this.d = d;
 
@@ -61,7 +83,7 @@ namespace MinhHoaMaHoaLai
             }
 
 
-            // Tính toán ước số chung lớn nhất (GCD)
+            // Tính toán ước số chung lớn nhất (GCD) của e và z 
             private int GCD(int a, int b)
             {
                 while (b != 0)
@@ -73,38 +95,19 @@ namespace MinhHoaMaHoaLai
                 return a;
             }
 
-            //// Tìm số e thỏa mãn gcd(e, z) = 1 và 1 < e < z
-            //private int FindE()
-            //{
-            //    for (int i = 2; i < z; i++)
-            //    {
-            //        if (GCD(i, z) == 1)
-            //            return i;
-            //    }
-            //    throw new InvalidOperationException("Không tìm thấy giá trị e hợp lệ.");
-            //}
-
-            //// Tìm số d thỏa mãn (e * d) mod z = 1
-            //private int FindD()
-            //{
-            //    int x, y;
-            //    ExtendedGCD(e, z, out x, out y);
-            //    return (x % z + z) % z; // Đảm bảo d không âm
-            //}
-
-            // Mã hóa dữ liệu bằng công thức c =  m^e mod n
-            public int Encrypt(int m)
+            // Mã hóa khóa K bằng công thức c =  k^e mod n
+            public int Encrypt(int k)
             {
-                return ModExp(m, e, n);
+                return ModExp(k, e, n);
             }
 
-            // Giải mã dữ liệu bằng công thức m =  c^d mod n
+            // Giải mã khóa K bằng công thức k =  c^d mod n
             public int Decrypt(int c)
             {
                 return ModExp(c, d, n);
             }
 
-            // Tính toán k^e mod n và c^d mod n
+            // Tính toán c = k^e mod n và  k = c^d mod n
             private int ModExp(int baseVal, int exp, int mod)
             {
                 int result = 1;
@@ -120,7 +123,7 @@ namespace MinhHoaMaHoaLai
                 return result;
             }
         }
-
+        // Mã hóa đối xứng CaeserCipher
         public class CaesarCipher
         {
             // Khóa K của mã hóa CaeserCipher
@@ -136,6 +139,7 @@ namespace MinhHoaMaHoaLai
                 StringBuilder encryptedText = new StringBuilder();
                 foreach (char ch in plainText)
                 {
+                    // Nếu là chứ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
                     if (char.IsLetter(ch))
                     {
                         char d = char.IsUpper(ch) ? 'A' : 'a';
@@ -153,6 +157,8 @@ namespace MinhHoaMaHoaLai
             public string Decrypt(string cipherText)
             {
                 StringBuilder decryptedText = new StringBuilder();
+
+                // Nếu là chứ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
                 foreach (char ch in cipherText)
                 {
                     if (char.IsLetter(ch))
@@ -173,7 +179,7 @@ namespace MinhHoaMaHoaLai
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-
+            // Lấy giá trị từ các trường dữ liệu
             int p = int.Parse(txtP.Text);
             int q = int.Parse(txtQ.Text);
             int eValue = int.Parse(txtE.Text);
@@ -181,11 +187,11 @@ namespace MinhHoaMaHoaLai
             int symmetricKey = int.Parse(txtSymmetricKey.Text);
             string plainText = txtPlainText.Text;
 
-            // Khởi tạo thuật toán RSA
+            // Khởi tạo thuật toán RSA 
             RSA rsa = new RSA(p, q, eValue, dValue);
-            rsa.e = eValue;
 
-            // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d)
+
+            // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d) sau khi tính toán 
             txtN.Text = rsa.n.ToString(); 
             txtZ.Text = rsa.z.ToString(); 
             txtD.Text = rsa.d.ToString(); 
@@ -208,6 +214,7 @@ namespace MinhHoaMaHoaLai
 
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
+            // Lấy giá trị từ các trường dữ liệu
             int p = int.Parse(txtP.Text);
             int q = int.Parse(txtQ.Text);
             int dValue = int.Parse(txtD.Text);
@@ -217,9 +224,9 @@ namespace MinhHoaMaHoaLai
 
             // Khởi tạo thuật toán RSA
             RSA rsa = new RSA(p, q,eValue, dValue);
-            rsa.e = eValue;
+           
 
-            // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d)
+            // Hiển thị giá trị n, z, d, khóa công khai (n, e) và khóa riêng tư (n, d) sau khi tính toán 
             txtN.Text = rsa.n.ToString(); 
             txtZ.Text = rsa.z.ToString(); 
             txtD.Text = rsa.d.ToString(); 
@@ -238,5 +245,7 @@ namespace MinhHoaMaHoaLai
             txtDecryptedData.Text = decryptedText;
 
         }
+
+
     }
 }
