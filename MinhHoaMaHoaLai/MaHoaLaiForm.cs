@@ -43,6 +43,7 @@ namespace MinhHoaMaHoaLai
         // Mã hóa bất đối xứng RSA
         public class RSA
         {
+            // Khởi tạo các tham số của thuật toán RSA
             public int p { get; set; }
             public int q { get; set; }
             public int n { get; private set; }
@@ -69,20 +70,6 @@ namespace MinhHoaMaHoaLai
                     MessageBox.Show("Giá trị D không hợp lệ .", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            // Kiểm tra tính hợp lệ của e
-            private bool IsValidE(int e, int z)
-            {
-                return e > 1 && e < z && GCD(e, z) == 1;
-            }
-
-            // Kiểm tra tính hợp lệ của d
-            private bool IsValidD(int e, int d, int z)
-            {
-                return (e * d) % z == 1;
-            }
-
-
             // Tính toán ước số chung lớn nhất (GCD) của e và z 
             private int GCD(int a, int b)
             {
@@ -95,19 +82,18 @@ namespace MinhHoaMaHoaLai
                 return a;
             }
 
-            // Mã hóa khóa K bằng công thức c =  k^e mod n
-            public int Encrypt(int k)
+            // Kiểm tra tính hợp lệ của e
+            private bool IsValidE(int e, int z)
             {
-                return ModExp(k, e, n);
+                return e > 1 && e < z && GCD(e, z) == 1;
             }
 
-            // Giải mã khóa K bằng công thức k =  c^d mod n
-            public int Decrypt(int c)
+            // Kiểm tra tính hợp lệ của d
+            private bool IsValidD(int e, int d, int z)
             {
-                return ModExp(c, d, n);
+                return (e * d) % z == 1;
             }
-
-            // Tính toán c = k^e mod n và  k = c^d mod n
+            // Tính toán lũy thừa c = k^e mod n và  k = c^d mod n
             private int ModExp(int baseVal, int exp, int mod)
             {
                 int result = 1;
@@ -122,11 +108,24 @@ namespace MinhHoaMaHoaLai
                 }
                 return result;
             }
+            // Mã hóa khóa K bằng công thức c =  k^e mod n
+            public int Encrypt(int k)
+            {
+                return ModExp(k, e, n);
+            }
+
+            // Giải mã khóa K bằng công thức k =  c^d mod n
+            public int Decrypt(int c)
+            {
+                return ModExp(c, d, n);
+            }
         }
+
+
         // Mã hóa đối xứng CaeserCipher
         public class CaesarCipher
         {
-            // Khóa K của mã hóa CaeserCipher
+            // Khởi tạo khóa K của mã hóa CaeserCipher
             public int Key { get; set; } 
 
             public CaesarCipher(int key)
@@ -139,7 +138,7 @@ namespace MinhHoaMaHoaLai
                 StringBuilder encryptedText = new StringBuilder();
                 foreach (char ch in plainText)
                 {
-                    // Nếu là chứ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
+                    // Duyệt từng ký tự nếu là chữ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
                     if (char.IsLetter(ch))
                     {
                         char d = char.IsUpper(ch) ? 'A' : 'a';
@@ -153,18 +152,18 @@ namespace MinhHoaMaHoaLai
                 }
                 return encryptedText.ToString();
             }
-            // Giải mã Plaintext bằng CaeserCipher
+            // Giải mã Ciphertext bằng CaeserCipher
             public string Decrypt(string cipherText)
             {
                 StringBuilder decryptedText = new StringBuilder();
 
-                // Nếu là chứ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
+                // Duyệt từng ký tự nếu là chữ cái thì thay đổi thành ký tự tương ứng , ngược lại là số thì không thay đổi 
                 foreach (char ch in cipherText)
                 {
                     if (char.IsLetter(ch))
                     {
                         char d = char.IsUpper(ch) ? 'A' : 'a';
-                        int newIndex = (((ch - d) - Key + 26) % 26);
+                        int newIndex = (((ch - d) - Key) % 26);
                         decryptedText.Append((char)(newIndex + d));
                     }
                     else
