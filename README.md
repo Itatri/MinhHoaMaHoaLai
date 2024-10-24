@@ -1,10 +1,10 @@
 
-## Báo cáo môn học Bảo Mật HTTT : Code minh họa Mã Hóa Lai ở mức ứng dụng
+## Báo cáo môn học Bảo Mật HTTT : Code minh họa thuật toán Mã Hóa Lai ở mức ứng dụng
 
 
 ### Các chức năng
 
-- Mã hóa và giải mã kí tự phục vụ cho mục đích minh họa 
+- Mã hóa và giải mã kí tự 
 
 
 
