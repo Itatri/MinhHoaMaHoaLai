@@ -1,5 +1,5 @@
 
-## Báo cáo môn học Bảo Mật HTTT : Code minh họa thuật toán Mã Hóa Lai ở mức ứng dụng
+## Báo cáo môn học Bảo Mật HTTT : Code minh họa thuật toán Mã Hóa Lai
 
 
 ### Các chức năng
