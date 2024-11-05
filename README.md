@@ -4,7 +4,7 @@
 
 ### Các chức năng
 
-- Mã hóa và giải mã kí tự 
+- Mã hóa và giải mã kí tự ( phục vụ cho việc minh họa thuật toán ) 
 
 
 
