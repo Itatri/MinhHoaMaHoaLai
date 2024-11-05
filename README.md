@@ -1,5 +1,5 @@
 
-## Báo cáo môn học Bảo Mật HTTT : Code minh họa thuật toán Mã Hóa Lai
+## Báo cáo môn học Bảo Mật HTTT : Code thuần minh họa thuật toán Mã Hóa Lai
 
 
 ### Các chức năng
@@ -18,4 +18,5 @@
 ### Demo
 
 
-![MaHoaLai](https://github.com/user-attachments/assets/f119df27-06f6-4b03-a0fc-c9124a549d47)
+
+![MaHoaLai](https://github.com/user-attachments/assets/ce8399ed-5854-4b4a-8643-9e471bbd4a87)
