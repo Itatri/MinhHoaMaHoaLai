@@ -1,5 +1,5 @@
 
-## Báo cáo Bảo Mật HTTT : Phần mềm minh họa thuật toán Mã Hóa Lai
+## Báo cáo Bảo Mật HTTT : Phần mềm minh họa Mã Hóa Lai
 
 
 ### Functions
