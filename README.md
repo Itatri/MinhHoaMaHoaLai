@@ -1,15 +1,12 @@
-
-## Báo cáo Bảo Mật HTTT : Phần mềm minh họa Mã Hóa Lai
-
-
-### Chức năng
-
-- Mã hóa và giải mã kí tự 
+## Information System Security Report: Software Illustration of hybrid encryption algorithm
 
 
+### Function
 
-### Công nghệ
+- Encode and decode characters 
+
+
+
+### Technology
 
 - Windows Forms App .Net Framework
-
-
