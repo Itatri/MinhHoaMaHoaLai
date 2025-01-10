@@ -1,4 +1,4 @@
-## Information System Security Report: Software Illustration of hybrid encryption algorithm
+## Information system security project: Software illustration of hybrid encryption algorithm
 
 
 ### Function
