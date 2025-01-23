@@ -10,4 +10,7 @@
 
 ### Demo
 
-![MHL](https://github.com/user-attachments/assets/0c65fffb-dffd-400f-9f37-e4f715e0150e)
+<details>
+    <summary>Preview</summary>
+    <img loading="lazy" src="https://github.com/user-attachments/assets/0c65fffb-dffd-400f-9f37-e4f715e0150e">
+  </details>
